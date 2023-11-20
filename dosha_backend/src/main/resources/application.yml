@@ -1,0 +1,22 @@
+spring: 
+  datasource:
+    url: jdbc:mysql://localhost:3306/dosha?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: dgb0854
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        "[format_sql]": true
+        "[show_sql]": true
+        
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+     
+jwt:
+  secret: aW50b3RoZWxpZ2h0aWZpY291bGRiZWFjb25zdGVsbGF0aW9ubmV2ZXJmb3JnZXRrZXNzb2t1YmFuZHNlaXN5dW5jb21wbGV4

@@ -1,0 +1,60 @@
+.ProceedingsEditBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.ProceedingsEditForm {
+  width: 70vw;
+  height: 80vh;
+  background-color: white;
+  border-radius: 1vh;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.ProceedingEditTextBottom {
+  width: 30vh;
+  height: 0.5vh;
+  margin-left: 0.5vh;
+  margin-bottom: 1vh;
+  background-color: #95bdfd;
+}
+
+.ProceedingsEditMemberBox {
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.ProceedingsMembers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ProceedingsEditTopBox {
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.ProceedingsEditTopMemberBox {
+  width: 100%;
+}
+
+.ProceedingsEditDiv {
+  display: flex;
+  width: 93%;
+  margin-left: 5%;
+  align-items: center;
+}
+
+.ProceedingsEditFormBox {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-left: 5%;
+}

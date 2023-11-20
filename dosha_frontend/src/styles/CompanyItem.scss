@@ -1,0 +1,13 @@
+.CompanyItemBox {
+  width: 97%;
+  height: 6vh;
+  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
+  border-radius: 0.5vh;
+
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+  margin-bottom: 1vh;
+
+  cursor: pointer;
+}

@@ -1,0 +1,48 @@
+.LoginForm {
+  width: 75vh;
+  height: 75vh;
+  border-radius: 0.75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.LoginInput {
+  width: 60vh;
+  height: 5vh;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+}
+
+.LoginInputDiv {
+  width: 60vh;
+  display: flex;
+  font-size: 2vh;
+  font-weight: bold;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.LoginButtonDiv {
+  width: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  :nth-child(odd) {
+    margin-bottom: 1vh;
+  }
+  :nth-child(even) {
+    margin-bottom: 1vh;
+  }
+  margin-top: 2vh;
+}
+
+.LoginH1 {
+  margin-bottom: 5vh;
+  font-size: 5vh;
+}

@@ -1,0 +1,13 @@
+.CommitteeItemBox {
+  width: 85%;
+  height: 7vh;
+  border-radius: 0.5vh;
+  margin-bottom: 1vh;
+  box-shadow: 0 2px 3px 0 hsla(0, 0%, 0%, 0.2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1vh;
+  padding-right: 1vh;
+}

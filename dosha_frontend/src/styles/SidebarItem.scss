@@ -1,0 +1,43 @@
+.SidebarItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  width: 100%;
+  height: 10vh;
+  margin-left: 2vh;
+  cursor: pointer;
+}
+
+.SelectedMarker {
+  min-width: 0.5vh;
+  max-width: 0.5vh;
+  height: 5vh;
+  margin-right: 0.5vh;
+}
+
+.SidebarItemBox {
+  width: 7vh;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 2vh;
+  cursor: pointer;
+}
+
+.SidebarItemIcon {
+  width: 4vh;
+  height: 4vh;
+  font-size: 4vh;
+  margin-left: 0.5vh;
+  margin-right: 0.5vh;
+}
+
+.SidebarItemSelected {
+  height: 4vh;
+  width: 0.5vh;
+  background-color: #57a1f2;
+}
