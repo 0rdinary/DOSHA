@@ -77,6 +77,8 @@ function Header() {
 
   useEffect(() => {
     // 로그인이 되어 있다면 => 알림 가져오기
+    console.log('헤더 시작');
+    console.log(id);
     if (id) {
       const getNotification = async () => {
         const url = process.env.REACT_APP_DB_HOST + '/api/notification/get';
