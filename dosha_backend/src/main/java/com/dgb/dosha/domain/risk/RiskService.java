@@ -53,6 +53,8 @@ public class RiskService extends EgovAbstractServiceImpl {
 		
 		try {
 			file.transferTo(f);
+			f.setWritable(true);
+			f.setReadable(true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -34,6 +34,8 @@ public class MeetingService extends EgovAbstractServiceImpl {
 		}
 		try {
 			meeting.transferTo(f);
+			f.setWritable(true);
+			f.setReadable(true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

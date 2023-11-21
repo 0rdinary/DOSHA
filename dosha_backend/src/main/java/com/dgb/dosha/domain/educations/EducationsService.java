@@ -37,6 +37,8 @@ public class EducationsService extends EgovAbstractServiceImpl {
 		}
 		try {
 			educations.transferTo(f);
+			f.setWritable(true);
+			f.setReadable(true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
