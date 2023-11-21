@@ -1,9 +1,9 @@
 package com.dgb.dosha.domain.educations;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.ResponseEntity;
@@ -39,9 +39,10 @@ public class EducationsController {
 	}
 
 	@GetMapping("/load")
-	public ResponseEntity<byte[]> loadEducations(@RequestParam Long id) throws IOException {
-		Resource resource = new UrlResource(es.load(id));
-		byte[] bytes = StreamUtils.copyToByteArray(resource.getInputStream());
-		return ResponseEntity.ok(bytes);
+	public byte[] loadEducations(@RequestParam Long id) throws IOException {
+		Path path = Paths.get(es.load(id));
+        UrlResource resource = new UrlResource(path.toUri());
+        byte[] bytes = StreamUtils.copyToByteArray(resource.getInputStream());
+        return bytes;
 	}
 }
