@@ -80,7 +80,7 @@ export const checkToken = (key) => {
 
 export const requestLogin = async ({ id, password }) => {
   try {
-    const response = await axios.post('/auth/login', {
+    const response = await axios.post('http://52.78.107.61:8080/auth/login', {
       id,
       password,
     });
