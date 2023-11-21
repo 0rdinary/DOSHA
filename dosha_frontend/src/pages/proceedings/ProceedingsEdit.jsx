@@ -201,6 +201,7 @@ function ProceedingsEdit() {
               display: 'flex',
               justifyContent: 'end',
               alignItems: 'end',
+              marginBottom: '1vh',
             }}
           >
             <Button style={{ marginRight: '3%' }} onClick={cancleHandler}>

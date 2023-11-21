@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import { message } from 'antd';
+import { message, Tour } from 'antd';
 import { CheckSquareOutlined, CloseSquareOutlined } from '@ant-design/icons';
 
 import Loading from '../../components/Loading';
@@ -14,6 +14,8 @@ function MemberCheckBox({ proceedingsId, member }) {
   const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const [checked, setChecked] = useState(false);
+  const [tourOpen, setTourOpen] = useState(false);
+  const ref1 = useRef(null);
 
   const success = () => {
     messageApi.open({
@@ -29,8 +31,21 @@ function MemberCheckBox({ proceedingsId, member }) {
     });
   };
 
+  const steps = [
+    {
+      title: '결제를 진행하여 주세요',
+      description: '참석한 것이 맞으시다면 클릭해주시기 바랍니다.',
+      target: () => ref1.current,
+      nextButtonProps: { children: '확인' },
+    },
+  ];
+
   useEffect(() => {
     setChecked(member.checked);
+
+    if (member.employeeId === id && !member.checked) {
+      tourOpen(true);
+    }
   }, []);
 
   const checkHandler = async () => {
@@ -68,6 +83,7 @@ function MemberCheckBox({ proceedingsId, member }) {
       {loading && <Loading />}
       {contextHolder}
       {member.name}
+      <Tour open={tourOpen} onClose={() => setTourOpen(false)} steps={steps} />
       <motion.div
         whileHover={member.employeeId === id && !checked ? { scale: 2 } : null}
       >
@@ -80,6 +96,7 @@ function MemberCheckBox({ proceedingsId, member }) {
           <CloseSquareOutlined
             className="MemberCheckBoxIcon"
             style={{ color: 'red' }}
+            ref={ref1}
           />
         )}
       </motion.div>
