@@ -6,8 +6,8 @@ PROJECT_NAME2=dosha_frontend
 
 cd $REPOSITORY/$PROJECT_NAME/
 
-echo "> Git Pull server project"
-git pull
+# echo "> Git Pull server project"
+# git pull
 
 echo "> Build server project"
 mvn package
@@ -51,8 +51,8 @@ cd $REPOSITORY/$PROJECT_NAME2
 echo "> pm2 kill"
 pm2 kill
 
-echo "> git pull"
-git pull
+# echo "> git pull"
+# git pull
 
 echo "> pm2 build"
 pm2 serve build/ 3000 --spa
