@@ -28,17 +28,25 @@ public class EducationsService extends EgovAbstractServiceImpl {
 		
 		
 		File f = new File(filePath + fileName);
+		if (!f.exists()) {
+			try {
+				f.mkdirs();
+			} catch (Exception e) {
+				
+			}
+		}
 		try {
 			educations.transferTo(f);
+			final Educations file = Educations.builder()
+					.employee(employeeRepository.findById(id).get())
+					.filename(fileName)
+					.build();
+			er.save(file);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		final Educations file = Educations.builder()
-				.employee(employeeRepository.findById(id).get())
-				.filename(fileName)
-				.build();
-		er.save(file);
+		
 	}
 	
 	public String load(Long id) {
