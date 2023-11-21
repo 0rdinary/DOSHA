@@ -91,15 +91,17 @@ function ProceedingsList() {
           ))}
         <div style={{ display: 'flex', marginLeft: '1%' }}>
           <motion.div whileHover={{ scale: 1.2 }}>
-            <PlusCircleOutlined
-              style={{
-                color: 'green',
-                fontSize: '3vh',
-                marginLeft: '1vh',
-                cursor: 'pointer',
-              }}
-              onClick={navigateRegist}
-            />
+            {role === 'ROLE_ADMIN' && (
+              <PlusCircleOutlined
+                style={{
+                  color: 'green',
+                  fontSize: '3vh',
+                  marginLeft: '1vh',
+                  cursor: 'pointer',
+                }}
+                onClick={navigateRegist}
+              />
+            )}
           </motion.div>
         </div>
       </motion.div>

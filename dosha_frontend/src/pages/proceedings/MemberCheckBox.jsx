@@ -42,11 +42,13 @@ function MemberCheckBox({ proceedingsId, member }) {
 
   useEffect(() => {
     setChecked(member.checked);
+  }, []);
 
+  useEffect(() => {
     if (member.employeeId === id && !member.checked) {
       tourOpen(true);
     }
-  }, []);
+  }, [checked]);
 
   const checkHandler = async () => {
     setLoading(true);
