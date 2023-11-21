@@ -51,17 +51,21 @@ public class InspectionService extends EgovAbstractServiceImpl {
 		return list.get(0).toDto();
 	}
 	
-	public String uploadFile(MultipartFile file) throws IllegalStateException, IOException {
+	public String uploadFile(MultipartFile file) {
 		String originFileName = file.getOriginalFilename();
 		String newFileName = System.currentTimeMillis() + originFileName;
 		
 		File f = new File(filePath + newFileName);
-		file.transferTo(f);
+		try {
+			file.transferTo(f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		return newFileName;
 	}
 	
-	public void regist(MultipartFile file, Long id) throws IllegalStateException, IOException {
+	public void regist(MultipartFile file, Long id) {
 		String newFilePath = this.uploadFile(file);
 		Employee employee = er.findById(id).get();
 		
