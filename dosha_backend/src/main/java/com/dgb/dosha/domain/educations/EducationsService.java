@@ -1,8 +1,7 @@
 package com.dgb.dosha.domain.educations;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Optional;
 
 import org.egovframe.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -21,16 +20,17 @@ public class EducationsService extends EgovAbstractServiceImpl {
 	
 	private final EducationsRepository er;
 	private final EmployeeRepository employeeRepository;
-	String filePath = "./educations/";
+	String filePath = "/home/ubuntu/DOSHA/educations/";
 	
 	public void upload(Long id, MultipartFile educations) throws IllegalStateException, IOException {
 		String originFileName = educations.getOriginalFilename();
 		String fileName = System.currentTimeMillis() + originFileName;
 		
 		
-		Path filePath = Paths.get("~/DOSHA/educations/", fileName);
-        educations.transferTo(filePath.toFile());
-//		File f = new File(filePath + fileName);
+//		Path filePath = Paths.get(filePath, fileName);
+
+		File f = new File(filePath + fileName);
+		educations.transferTo(f);
 //		if (!dir.exists()) {
 //			try {
 //				f.mkdirs();
