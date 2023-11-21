@@ -35,6 +35,7 @@ public class EducationsService extends EgovAbstractServiceImpl {
 		} catch (IOException e) {
 			
 		}
+		System.out.println(filePath + "/" + fileName);
 		File f = new File(filePath + "/" + fileName);
 		try {
 			educations.transferTo(f);
