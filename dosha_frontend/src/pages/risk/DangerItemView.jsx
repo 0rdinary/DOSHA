@@ -59,7 +59,7 @@ const DangerItemView = ({ start, end, inputs }) => {
       content: (
         <img
           style={{ width: '40vw', height: '70vh' }}
-          src={`${imgSrc}`}
+          src={imgSrc}
           alt="조치내용"
         />
       ),
@@ -87,10 +87,8 @@ const DangerItemView = ({ start, end, inputs }) => {
     // reader.readAsDataURL(newFile);
     const img = window.URL.createObjectURL(new Blob([response.data]));
     setImgSrc(img);
-    setTimeout(() => {
-      setLoading(false);
-      imageModal();
-    }, 10000);
+    setLoading(false);
+    imageModal();
   };
 
   for (let i = start; i <= end; i += 1) {
