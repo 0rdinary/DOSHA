@@ -10,7 +10,7 @@ echo "> Git Pull server project"
 git pull
 
 echo "> Build server project"
-./gradlew build
+./mvn package
 
 cd $REPOSITORY
 
