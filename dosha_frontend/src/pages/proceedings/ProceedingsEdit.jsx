@@ -39,7 +39,7 @@ function ProceedingsEdit() {
   useEffect(() => {
     setLoading(true);
     const request = async (committeeRole) => {
-      const url = '/api/committee/get';
+      const url = process.env.REACT_APP_DB_HOST + '/api/committee/get';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,
@@ -93,7 +93,7 @@ function ProceedingsEdit() {
     setLoading(true);
 
     try {
-      const url = '/api/proceedings/edit';
+      const url = process.env.REACT_APP_DB_HOST + '/api/proceedings/edit';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,

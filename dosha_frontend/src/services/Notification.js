@@ -9,7 +9,7 @@ import {
 export const requestNotification = ({ id, type }) => {
   const { accessToken } = useSelector((state) => state.authReducer);
   const [data, setData] = useState({});
-  const url = '/api/notification/send';
+  const url = process.env.REACT_APP_DB_HOST + '/api/notification/send';
   const headers = {
     'Content-Type': 'application/json;charset=UTF-8',
     Authorization: `Bearer ${accessToken}`,
@@ -39,7 +39,7 @@ export const getNotification = ({ id }) => {
   const { accessToken } = useSelector((state) => state.authReducer);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  const url = '/api/notification/get';
+  const url = process.env.REACT_APP_DB_HOST + '/api/notification/get';
   const headers = {
     'Content-Type': 'application/json;charset=UTF-8',
     Authorization: `Bearer ${accessToken}`,
@@ -63,7 +63,7 @@ export const getNotification = ({ id }) => {
 };
 
 export const readNotification = ({ accessToken, id }) => {
-  const url = '/api/notification/read';
+  const url = process.env.REACT_APP_DB_HOST + '/api/notification/read';
   const headers = {
     'Content-Type': 'application/json;charset=UTF-8',
     Authorization: `Bearer ${accessToken}`,

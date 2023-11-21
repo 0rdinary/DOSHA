@@ -33,7 +33,7 @@ function CommitteeItem({ employee, deleteFunction }) {
   };
 
   const deleteHandler = async () => {
-    const url = '/api/committee/delete';
+    const url = process.env.REACT_APP_DB_HOST + '/api/committee/delete';
     const headers = {
       'Content-Type': 'multipart/form-data;charset=UTF-8',
       Authorization: `Bearer ${accessToken}`,

@@ -55,7 +55,7 @@ function SubmanagerList() {
   const loadSubmanagers = async () => {
     setLoading(true);
     try {
-      const url1 = '/api/reason/';
+      const url1 = process.env.REACT_APP_DB_HOST + '/api/reason/';
       const bearerAccessToken = `Bearer ${accessToken}`;
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',

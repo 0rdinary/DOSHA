@@ -28,7 +28,7 @@ function InspectionList() {
   }
 
   useEffect(() => {
-    const url = '/api/inspection/getlist';
+    const url = process.env.REACT_APP_DB_HOST + '/api/inspection/getlist';
     const headers = {
       'Content-Type': 'application/json;charset=UTF-8',
       Authorization: `Bearer ${accessToken}`,

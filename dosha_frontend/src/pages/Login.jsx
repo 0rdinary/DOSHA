@@ -81,10 +81,13 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await axios.post('/auth/reset', {
-        id: idContent,
-        registrationNumber,
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_DB_HOST + '/auth/reset',
+        {
+          id: idContent,
+          registrationNumber,
+        },
+      );
 
       if (response.data.password === null) {
         throw error;

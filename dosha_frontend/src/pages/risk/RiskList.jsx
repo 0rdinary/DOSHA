@@ -43,7 +43,7 @@ function RiskList() {
       success();
     }
 
-    const url = '/api/risk/get/list';
+    const url = process.env.REACT_APP_DB_HOST + '/api/risk/get/list';
     const headers = {
       'Content-Type': 'application/json;charset=UTF-8',
       Authorization: `Bearer ${accessToken}`,

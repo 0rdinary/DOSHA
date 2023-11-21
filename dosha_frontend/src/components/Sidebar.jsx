@@ -17,7 +17,7 @@ function Sidebar() {
     // 로그인이 되어 있다면 => 위원회 위원인지 확인하고 가져오기
     if (id) {
       const request = async () => {
-        const url = '/api/committee/isMember';
+        const url = process.env.REACT_APP_DB_HOST + '/api/committee/isMember';
         const headers = {
           'Content-Type': 'application/json;charset=UTF-8',
           Authorization: `Bearer ${accessToken}`,

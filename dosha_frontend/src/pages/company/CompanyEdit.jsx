@@ -95,12 +95,12 @@ function CompanyEdit() {
     const formData = new FormData();
     let dto = {};
     if (state != null) {
-      url = '/api/company/edit';
+      url = process.env.REACT_APP_DB_HOST + '/api/company/edit';
       dto = {
         id: state.id,
       };
     } else {
-      url = '/api/company/regist';
+      url = process.env.REACT_APP_DB_HOST + '/api/company/regist';
     }
 
     formData.append('plan', plan);
@@ -132,7 +132,7 @@ function CompanyEdit() {
 
   const requestDelete = async () => {
     const response = await axios.post(
-      '/api/company/delete',
+      process.env.REACT_APP_DB_HOST + '/api/company/delete',
       { id: state.id },
       {
         headers: {

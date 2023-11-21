@@ -49,12 +49,16 @@ function Inspection() {
     formData.append('inspection', inspection);
     formData.append('id', id);
     try {
-      const response = await axios.post('/api/inspection/regist', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data;charset=UTF-8',
-          Authorization: `Bearer ${accessToken}`,
+      const response = await axios.post(
+        process.env.REACT_APP_DB_HOST + '/api/inspection/regist',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data;charset=UTF-8',
+            Authorization: `Bearer ${accessToken}`,
+          },
         },
-      });
+      );
       success();
     } catch (e) {
       error();

@@ -35,7 +35,7 @@ function MeetingView() {
   useEffect(() => {
     setLoading(true);
     const request = async () => {
-      const url = '/api/meeting/load';
+      const url = process.env.REACT_APP_DB_HOST + '/api/meeting/load';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,

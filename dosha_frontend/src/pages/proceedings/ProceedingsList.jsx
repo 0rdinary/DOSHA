@@ -44,7 +44,7 @@ function ProceedingsList() {
     setLoading(true);
 
     if (role === 'ROLE_ADMIN') {
-      const url = '/api/proceedings/get/all';
+      const url = process.env.REACT_APP_DB_HOST + '/api/proceedings/get/all';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,
@@ -55,7 +55,7 @@ function ProceedingsList() {
       };
       request();
     } else {
-      const url = '/api/proceedings/get';
+      const url = process.env.REACT_APP_DB_HOST + '/api/proceedings/get';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,

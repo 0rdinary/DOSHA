@@ -66,7 +66,8 @@ function SubmanagerAppointments() {
   useEffect(() => {
     // 선임·지정 날짜 불러오기
     const getAppointments = async () => {
-      const url = '/api/submanager/appointments/get';
+      const url =
+        process.env.REACT_APP_DB_HOST + '/api/submanager/appointments/get';
       const bearerAccessToken = `Bearer ${accessToken}`;
       const headers = {
         Authorization: bearerAccessToken,
@@ -83,7 +84,7 @@ function SubmanagerAppointments() {
     };
     // 소속부점 불러오기
     const getMyInfo = async () => {
-      const url = '/api/employee/myinfo';
+      const url = process.env.REACT_APP_DB_HOST + '/api/employee/myinfo';
       const bearerAccessToken = `Bearer ${accessToken}`;
       const headers = {
         Authorization: bearerAccessToken,
@@ -102,7 +103,8 @@ function SubmanagerAppointments() {
   const saveAppointments = async () => {
     setLoading(true);
     try {
-      const url = '/api/submanager/appointments/save';
+      const url =
+        process.env.REACT_APP_DB_HOST + '/api/submanager/appointments/save';
       const bearerAccessToken = `Bearer ${accessToken}`;
       const headers = {
         Authorization: bearerAccessToken,

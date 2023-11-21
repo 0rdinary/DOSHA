@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getAppointMents = async ({ id, accessToken }) => {
   try {
-    const url = '/api/manager/appointments/get';
+    const url = process.env.REACT_APP_DB_HOST + '/api/manager/appointments/get';
     const bearerAccessToken = `Bearer ${accessToken}`;
     const headers = {
       Authorization: bearerAccessToken,

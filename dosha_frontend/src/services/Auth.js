@@ -11,13 +11,13 @@ import { timeActions } from '../store/slices/timeReducer';
 
 export const requestToken = async (refreshToken) => {
   try {
-    const url = '/auth/refresh';
+    const url = process.env.REACT_APP_DB_HOST + '/auth/refresh';
     const bearerRefreshToken = `Bearer ${refreshToken}`;
     const headers = {
       'Content-Type': 'application/json;charset=UTF-8',
       'X-REFRESH-TOKEN': bearerRefreshToken,
     };
-    const response = await axios.post('/auth/refresh', null, {
+    const response = await axios.post(url, null, {
       headers,
     });
 

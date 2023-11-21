@@ -79,7 +79,7 @@ function Header() {
     // 로그인이 되어 있다면 => 알림 가져오기
     if (id) {
       const getNotification = async () => {
-        const url = '/api/notification/get';
+        const url = process.env.REACT_APP_DB_HOST + '/api/notification/get';
         const headers = {
           'Content-Type': 'application/json;charset=UTF-8',
           Authorization: `Bearer ${accessToken}`,

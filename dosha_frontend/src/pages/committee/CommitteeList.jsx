@@ -39,7 +39,7 @@ function CommitteeList() {
     setLoading(true);
 
     const request = async () => {
-      const url = '/api/employee/get/all';
+      const url = process.env.REACT_APP_DB_HOST + '/api/employee/get/all';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,

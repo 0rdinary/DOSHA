@@ -66,7 +66,8 @@ function ManagerAppointments() {
   useEffect(() => {
     const getAppointments = async () => {
       try {
-        const url = '/api/manager/appointments/get';
+        const url =
+          process.env.REACT_APP_DB_HOST + '/api/manager/appointments/get';
         const bearerAccessToken = `Bearer ${accessToken}`;
         const headers = {
           Authorization: bearerAccessToken,
@@ -89,7 +90,8 @@ function ManagerAppointments() {
   const saveAppointments = async () => {
     setLoading(true);
     try {
-      const url = '/api/manager/appointments/save';
+      const url =
+        process.env.REACT_APP_DB_HOST + '/api/manager/appointments/save';
       const bearerAccessToken = `Bearer ${accessToken}`;
       const headers = {
         Authorization: bearerAccessToken,

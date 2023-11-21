@@ -36,7 +36,7 @@ function MemberCheckBox({ proceedingsId, member }) {
   const checkHandler = async () => {
     setLoading(true);
     try {
-      const url = '/api/proceedings/check';
+      const url = process.env.REACT_APP_DB_HOST + '/api/proceedings/check';
       const headers = {
         'Content-Type': 'multipart/form-data;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,

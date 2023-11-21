@@ -46,7 +46,8 @@ function Educations() {
   useEffect(() => {
     setLoading(true);
     const request = async () => {
-      const url = '/api/manager/educations/load';
+      const url =
+        process.env.REACT_APP_DB_HOST + '/api/manager/educations/load';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,
@@ -95,7 +96,7 @@ function Educations() {
     formData.append('id', id);
     try {
       const response = await axios.post(
-        '/api/manager/educations/upload',
+        process.env.REACT_APP_DB_HOST + '/api/manager/educations/upload',
         formData,
         {
           headers: {

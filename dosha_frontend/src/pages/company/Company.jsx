@@ -36,7 +36,7 @@ function Company() {
 
   useEffect(() => {
     setLoading(true);
-    const url = '/api/company/get';
+    const url = process.env.REACT_APP_DB_HOST + '/api/company/get';
     const headers = {
       'Content-Type': 'application/json;charset=UTF-8',
       Authorization: `Bearer ${accessToken}`,

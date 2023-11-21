@@ -46,7 +46,7 @@ function InspectionCheck() {
 
   useEffect(() => {
     const requestImage = async () => {
-      const url = '/api/inspection/get/image';
+      const url = process.env.REACT_APP_DB_HOST + '/api/inspection/get/image';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,
@@ -76,7 +76,7 @@ function InspectionCheck() {
   const checkHandler = async () => {
     setLoading(true);
     try {
-      const url = '/api/inspection/check';
+      const url = process.env.REACT_APP_DB_HOST + '/api/inspection/check';
       const headers = {
         'Content-Type': 'multipart/form-data;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,

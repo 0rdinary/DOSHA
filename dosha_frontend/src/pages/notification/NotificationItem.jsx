@@ -46,7 +46,7 @@ function NotificationItem({ notiId, notiType }) {
 
   const navigateService = async () => {
     setLoading(true);
-    const url = '/api/notification/read';
+    const url = process.env.REACT_APP_DB_HOST + '/api/notification/read';
     const headers = {
       'Content-Type': 'application/json;charset=UTF-8',
       Authorization: `Bearer ${accessToken}`,

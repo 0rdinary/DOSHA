@@ -82,7 +82,7 @@ function Danger({ step, stepHandler, info }) {
   const registHandler = async () => {
     setLoading(true);
     try {
-      const url = '/api/risk/regist';
+      const url = process.env.REACT_APP_DB_HOST + '/api/risk/regist';
       const headers = {
         'Content-Type': 'multipart/form-data;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,

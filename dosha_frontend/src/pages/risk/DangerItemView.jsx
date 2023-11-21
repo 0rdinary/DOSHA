@@ -68,7 +68,7 @@ const DangerItemView = ({ start, end, inputs }) => {
 
   const loadImage = async (id) => {
     setLoading(true);
-    const url = '/api/risk/image';
+    const url = process.env.REACT_APP_DB_HOST + '/api/risk/image';
     const headers = {
       'Content-Type': 'application/json;charset=UTF-8',
       Authorization: `Bearer ${accessToken}`,

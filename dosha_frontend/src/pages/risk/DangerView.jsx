@@ -54,7 +54,7 @@ function DangerView({ step, stepHandler, info }) {
   const checkHandler = async () => {
     setLoading(true);
     try {
-      const url = '/api/risk/check';
+      const url = process.env.REACT_APP_DB_HOST + '/api/risk/check';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,
@@ -72,7 +72,7 @@ function DangerView({ step, stepHandler, info }) {
 
   useEffect(() => {
     const request = async () => {
-      const url = '/api/risk/dangers';
+      const url = process.env.REACT_APP_DB_HOST + '/api/risk/dangers';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,

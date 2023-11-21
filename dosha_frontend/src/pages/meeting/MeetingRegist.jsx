@@ -37,7 +37,7 @@ function MeetingRegist() {
   useEffect(() => {
     setLoading(true);
     const request = async () => {
-      const url = '/api/meeting/get';
+      const url = process.env.REACT_APP_DB_HOST + '/api/meeting/get';
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Authorization: `Bearer ${accessToken}`,
@@ -86,12 +86,16 @@ function MeetingRegist() {
     formData.append('meeting', meeting);
     formData.append('name', name);
     try {
-      const response = await axios.post('/api/meeting/regist', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data;charset=UTF-8',
-          Authorization: `Bearer ${accessToken}`,
+      const response = await axios.post(
+        process.env.REACT_APP_DB_HOST + '/api/meeting/regist',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data;charset=UTF-8',
+            Authorization: `Bearer ${accessToken}`,
+          },
         },
-      });
+      );
       success();
     } catch (e) {
       error();
