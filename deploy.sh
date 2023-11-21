@@ -15,7 +15,7 @@ mvn package
 cd $REPOSITORY
 
 echo "> copy Server Project Build file"
-cp $REPOSITORY/$PROJECT_NAME/build/libs/*.jar $REPOSITORY/
+cp $REPOSITORY/$PROJECT_NAME/target/*.jar $REPOSITORY/d
 
 echo "> check Server Application pid"
 CURRENT_PID=$(pgrep -f ${PROJECT_NAME}.*.jar)
