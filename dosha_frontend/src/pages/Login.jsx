@@ -91,7 +91,6 @@ function Login() {
         throw error;
       }
 
-      console.log(response);
       setIdContent('');
       setRegistrationNumber('');
       setPassword(response.data.password);
