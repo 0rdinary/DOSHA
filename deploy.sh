@@ -54,9 +54,5 @@ pm2 kill
 echo "> git pull"
 git pull
 
-echo "> yarn build"
-yarn install
-yarn build
-
 echo "> pm2 build"
 pm2 serve build/ 3000 --spa
