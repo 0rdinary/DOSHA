@@ -54,7 +54,6 @@ function Login() {
     setLoading(true);
     const response = await requestLogin({ id, password });
     if (response.status) {
-      console.log(response.status);
       dispatch(authActions.setAccessToken(response));
       setRefreshToken(response.refreshToken);
       dispatch(timeActions.setTime(300));

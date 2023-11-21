@@ -80,10 +80,13 @@ export const checkToken = (key) => {
 
 export const requestLogin = async ({ id, password }) => {
   try {
-    const response = await axios.post('/auth/login', {
-      id,
-      password,
-    });
+    const response = await axios.post(
+      process.env.REACT_APP_DB_HOST + '/auth/login',
+      {
+        id,
+        password,
+      },
+    );
     const { accessToken, refreshToken, name, position } = response.data;
     return {
       status: true,
