@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY=./
+REPOSITORY=~/DOSHA
 PROJECT_NAME=dosha_backend
 PROJECT_NAME2=dosha_frontend
 
@@ -12,7 +12,7 @@ git pull
 echo "> Build server project"
 mvn package
 
-cd ../
+cd $REPOSITORY
 
 echo "> copy Server Project Build file"
 cp $REPOSITORY/$PROJECT_NAME/build/libs/*.jar $REPOSITORY/
