@@ -3,6 +3,7 @@ package com.dgb.dosha.domain.educations;
 import java.net.MalformedURLException;
 
 import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,11 @@ public class EducationsController {
 	@GetMapping("/load")
 	public ResponseEntity<UrlResource> loadEducations(@RequestParam Long id) throws MalformedURLException {
 		
-		return ResponseEntity.ok(new UrlResource("file:" + es.load(id)));
+		String contentDisposition = "attachment";
+		
+		return ResponseEntity
+				.ok()
+				.header(HttpHeaders.CONTENT_DISPOSITION,contentDisposition)
+				.body(new UrlResource("file:" + es.load(id)));
 	}
 }
