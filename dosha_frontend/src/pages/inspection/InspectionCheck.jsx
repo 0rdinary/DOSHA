@@ -83,7 +83,7 @@ function InspectionCheck() {
           headers,
         },
       );
-      navigate('inspectionlist', { state: true });
+      navigate('/inspectionlist', { state: true });
     } catch (e) {
       error();
     }

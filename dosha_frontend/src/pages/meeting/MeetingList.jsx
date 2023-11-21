@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Button, Input, Modal, Upload, message } from 'antd';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { PlusCircleOutlined } from '@ant-design/icons';
@@ -26,13 +27,26 @@ function MeetingList() {
   const { role, accessToken } = useSelector((state) => state.authReducer);
   const [meetings, setMeetings] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   if (role !== 'ROLE_ADMIN') {
     return <AccessDenied />;
   }
 
+  const success = () => {
+    messageApi.open({
+      type: 'success',
+      content: '제출에 성공하였습니다',
+    });
+  };
+
   useEffect(() => {
+    if (state) {
+      success();
+    }
+
     setLoading(true);
     const url = process.env.REACT_APP_DB_HOST + '/api/meeting/get/all';
     const headers = {
@@ -60,6 +74,7 @@ function MeetingList() {
         animate="visible"
         variants={variants}
       >
+        {contextHolder}
         <h1 style={{ marginLeft: '2vh' }}>
           도급사업안전보건협의체 회의록 관리
         </h1>

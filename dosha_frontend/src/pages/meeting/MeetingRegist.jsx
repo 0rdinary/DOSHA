@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import { Button, Input, Modal, Upload, message } from 'antd';
@@ -29,6 +30,7 @@ function MeetingRegist() {
   const [loading, setLoading] = useState(false);
   const { id, accessToken, role } = useSelector((state) => state.authReducer);
   const [messageApi, contextHolder] = message.useMessage();
+  const navigate = useNavigate();
 
   if (role !== 'ROLE_ADMIN') {
     return <AccessDenied />;
@@ -48,7 +50,6 @@ function MeetingRegist() {
           params: { id },
           headers,
         });
-        console.log(response.data);
         const newFile = new File([response.data], '회의록');
         const reader = new FileReader();
         reader.onload = (ev) => {
@@ -64,13 +65,6 @@ function MeetingRegist() {
     request();
     setLoading(false);
   }, []);
-
-  const success = () => {
-    messageApi.open({
-      type: 'success',
-      content: '제출에 성공하였습니다',
-    });
-  };
 
   const error = () => {
     messageApi.open({
@@ -96,7 +90,7 @@ function MeetingRegist() {
           },
         },
       );
-      success();
+      navigate('/meeting/list', { state: true });
     } catch (e) {
       error();
     }
