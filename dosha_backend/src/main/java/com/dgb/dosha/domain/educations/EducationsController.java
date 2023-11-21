@@ -1,10 +1,12 @@
 package com.dgb.dosha.domain.educations;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.HttpHeaders;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,14 +38,9 @@ public class EducationsController {
 	}
 
 	@GetMapping("/load")
-	public ResponseEntity<UrlResource> loadEducations(@RequestParam Long id) throws MalformedURLException {
-		
-		String fileName = es.load(id);
-		String contentDisposition = "attachment; filename=\"" + er.findByEmployee(employeeRepository.findById(id).get()).get().getFilename() + "\"";
-		
-		return ResponseEntity
-				.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION,contentDisposition)
-				.body(new UrlResource("file:" + es.load(id)));
+	public ResponseEntity<byte[]> loadEducations(@RequestParam Long id) throws IOException {
+		Resource resource = new ClassPathResource(es.load(id));
+		byte[] bytes = StreamUtils.copyToByteArray(resource.getInputStream());
+		return ResponseEntity.ok(bytes);
 	}
 }

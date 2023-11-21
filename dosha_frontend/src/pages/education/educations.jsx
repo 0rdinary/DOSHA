@@ -58,14 +58,16 @@ function Educations() {
           params: { id },
           headers,
         });
-        const newFile = new File([response.data], '교육필증');
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-          const previewImage = String(ev.target?.result);
-          setImgSrc(previewImage);
-        };
-        reader.readAsDataURL(newFile);
-        setImgSrc(response.data);
+        const img = window.URL.createObjectURL(new Blob([response.data]));
+        setImgSrc(img);
+        // const newFile = new File([response.data], '교육필증');
+        // const reader = new FileReader();
+        // reader.onload = (ev) => {
+        //   const previewImage = String(ev.target?.result);
+        //   setImgSrc(previewImage);
+        // };
+        // reader.readAsDataURL(newFile);
+        // setImgSrc(response.data);
       } catch (e) {
         setTourOpen(true);
       }
@@ -162,9 +164,7 @@ function Educations() {
             저장
           </Button>
         )}
-        {imgSrc && (
-          <img className="PreviewBox" src={`${imgSrc}`} alt="교육필증" />
-        )}
+        {imgSrc && <img className="PreviewBox" src={imgSrc} alt="교육필증" />}
       </motion.div>
       <Tour open={tourOpen} onClose={() => setTourOpen(false)} steps={steps} />
     </div>

@@ -77,7 +77,7 @@ function CommitteeTeam({ team, employees }) {
   };
 
   const addCommittee = async () => {
-    const url = '/api/committee/register';
+    const url = process.env.REACT_APP_DB_HOST + '/api/committee/register';
     const headers = {
       'Content-Type': 'multipart/form-data;charset=UTF-8',
       Authorization: `Bearer ${accessToken}`,
