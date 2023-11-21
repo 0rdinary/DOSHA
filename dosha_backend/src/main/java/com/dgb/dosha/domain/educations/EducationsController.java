@@ -31,7 +31,7 @@ public class EducationsController {
 	@PostMapping("/upload")
 	public ResponseEntity<String> upload(
 			@RequestParam Long id,
-			@RequestParam MultipartFile educations) {
+			@RequestParam MultipartFile educations) throws IOException {
 		
 		es.upload(id, educations);
 		
