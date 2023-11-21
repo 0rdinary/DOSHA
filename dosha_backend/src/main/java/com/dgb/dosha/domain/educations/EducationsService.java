@@ -20,7 +20,7 @@ public class EducationsService extends EgovAbstractServiceImpl {
 	
 	private final EducationsRepository er;
 	private final EmployeeRepository employeeRepository;
-	String filePath = "/educations/";
+	String filePath = "\\home\\ubuntu\\DOSHA\\educations\\";
 	
 	public void upload(Long id, MultipartFile educations) {
 		String originFileName = educations.getOriginalFilename();
