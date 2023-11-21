@@ -79,13 +79,14 @@ const DangerItemView = ({ start, end, inputs }) => {
       <div key={i} style={{ display: 'flex', marginLeft: '2vh' }}>
         {loading && <Loading />}
         <Modal
+          info
           title="조치내용"
           width="70vw"
           height="70vh"
           style={{ width: '70vw', height: '50vh' }}
           okText="확인"
           open={modalOpen}
-          onClose={() => setModalOpen(false)}
+          onCancel={() => setModalOpen(false)}
         >
           <img
             style={{ width: '40vw', height: '70vh' }}
