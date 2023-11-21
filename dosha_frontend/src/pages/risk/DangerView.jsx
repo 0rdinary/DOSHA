@@ -228,6 +228,7 @@ function DangerView({ step, stepHandler, info }) {
             height: '100%',
             justifyContent: 'end',
             alignItems: 'end',
+            marginBottom: '1vh',
           }}
         >
           {step !== 0 && (

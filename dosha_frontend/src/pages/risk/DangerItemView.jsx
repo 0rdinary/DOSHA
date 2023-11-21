@@ -78,14 +78,15 @@ const DangerItemView = ({ start, end, inputs }) => {
       params: { id },
       headers,
     });
-    const newFile = new File([response.data], '조치내용');
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const previewImage = String(ev.target?.result);
-      setImgSrc(previewImage);
-    };
-    reader.readAsDataURL(newFile);
-    setImgSrc(response.data);
+    // const newFile = new File([response.data], '조치내용');
+    // const reader = new FileReader();
+    // reader.onload = (ev) => {
+    //   const previewImage = String(ev.target?.result);
+    //   setImgSrc(previewImage);
+    // };
+    // reader.readAsDataURL(newFile);
+    const img = window.URL.createObjectURL(new Blob([response.data]));
+    setImgSrc(img);
     imageModal();
     setLoading(false);
   };

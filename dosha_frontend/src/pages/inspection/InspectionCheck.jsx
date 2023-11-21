@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { motion } from 'framer-motion';
@@ -25,17 +25,11 @@ function InspectionCheck() {
   const { state } = useLocation();
   const [imgSrc, setImgSrc] = useState('');
   const [messageApi, contextHolder] = message.useMessage();
+  const navigate = useNavigate();
 
   if (role !== 'ROLE_MANAGER') {
     return <AccessDenied />;
   }
-
-  const success = () => {
-    messageApi.open({
-      type: 'success',
-      content: '결제가 완료되었습니다',
-    });
-  };
 
   const error = () => {
     messageApi.open({
@@ -89,8 +83,7 @@ function InspectionCheck() {
           headers,
         },
       );
-      console.log(response);
-      success();
+      navigate('inspectionlist', { state: true });
     } catch (e) {
       error();
     }
