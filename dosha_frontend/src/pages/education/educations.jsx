@@ -58,6 +58,7 @@ function Educations() {
           params: { id },
           headers,
         });
+        console.log(response.data);
         const img = window.URL.createObjectURL(new Blob([response.data]));
         setImgSrc(img);
         // const newFile = new File([response.data], '교육필증');
