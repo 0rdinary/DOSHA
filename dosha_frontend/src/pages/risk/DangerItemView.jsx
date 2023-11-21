@@ -87,8 +87,10 @@ const DangerItemView = ({ start, end, inputs }) => {
     // reader.readAsDataURL(newFile);
     const img = window.URL.createObjectURL(new Blob([response.data]));
     setImgSrc(img);
-    imageModal();
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+      imageModal();
+    }, 3000);
   };
 
   for (let i = start; i <= end; i += 1) {

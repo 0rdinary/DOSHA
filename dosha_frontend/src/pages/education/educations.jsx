@@ -60,14 +60,6 @@ function Educations() {
         });
         const img = window.URL.createObjectURL(new Blob([response.data]));
         setImgSrc(img);
-        // const newFile = new File([response.data], '교육필증');
-        // const reader = new FileReader();
-        // reader.onload = (ev) => {
-        //   const previewImage = String(ev.target?.result);
-        //   setImgSrc(previewImage);
-        // };
-        // reader.readAsDataURL(newFile);
-        // setImgSrc(response.data);
       } catch (e) {
         setTourOpen(true);
       }
