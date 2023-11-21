@@ -85,6 +85,7 @@ export const requestLogin = async ({ id, password }) => {
       password,
     });
     const { accessToken, refreshToken, name, position } = response.data;
+    console.log(response.data);
     return {
       status: true,
       accessToken,
