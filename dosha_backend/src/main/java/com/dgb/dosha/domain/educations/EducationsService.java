@@ -28,7 +28,7 @@ public class EducationsService extends EgovAbstractServiceImpl {
 		String fileName = System.currentTimeMillis() + originFileName;
 		
 		
-		Path filePath = Paths.get("educations/", fileName);
+		Path filePath = Paths.get("~/DOSHA/educations/", fileName);
         educations.transferTo(filePath.toFile());
 //		File f = new File(filePath + fileName);
 //		if (!dir.exists()) {
