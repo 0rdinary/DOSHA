@@ -41,7 +41,7 @@ public class EducationsController {
 	@GetMapping("/load")
 	public byte[] loadEducations(@RequestParam Long id) throws IOException {
 //		Path path = Paths.get(es.load(id));
-        UrlResource resource = new UrlResource(es.load(id));
+        UrlResource resource = new UrlResource("file:" + es.load(id));
         byte[] bytes = StreamUtils.copyToByteArray(resource.getInputStream());
         return bytes;
 	}
