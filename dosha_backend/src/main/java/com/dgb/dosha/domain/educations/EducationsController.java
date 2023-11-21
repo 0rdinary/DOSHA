@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.dgb.dosha.domain.employee.repository.EmployeeRepository;
+
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -21,6 +23,7 @@ public class EducationsController {
 	
 	private final EducationsService es;
 	private final EducationsRepository er;
+	private final EmployeeRepository employeeRepository;
 
 	@PostMapping("/upload")
 	public ResponseEntity<String> upload(
@@ -36,7 +39,7 @@ public class EducationsController {
 	public ResponseEntity<UrlResource> loadEducations(@RequestParam Long id) throws MalformedURLException {
 		
 		String fileName = es.load(id);
-		String contentDisposition = "attachment; filename=\"" + er.findById(id).get().getFilename() + "\"";
+		String contentDisposition = "attachment; filename=\"" + er.findByEmployee(employeeRepository.findById(id).get()).get().getFilename() + "\"";
 		
 		return ResponseEntity
 				.ok()
