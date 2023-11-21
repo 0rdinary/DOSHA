@@ -24,8 +24,8 @@ import lombok.extern.slf4j.Slf4j;
 public class CompanyService extends EgovAbstractServiceImpl {
 	private final CompanyRepository cr;
 	private final EmployeeRepository er;
-	private final String planFilePath = "/plan/";
-	private final String evalFilePath = "/eval/";
+	private final String planFilePath = "/home/ubuntu/DOSHA/plan/";
+	private final String evalFilePath = "/home/ubuntu/DOSHA/eval/";
 
 	public String uploadFile(MultipartFile file, int tp) {
 		String originFileName = file.getOriginalFilename();
@@ -39,8 +39,6 @@ public class CompanyService extends EgovAbstractServiceImpl {
 		}
 		try {
 			file.transferTo(f);
-			f.setWritable(true);
-			f.setReadable(true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

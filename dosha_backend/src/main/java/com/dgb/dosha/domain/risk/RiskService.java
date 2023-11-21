@@ -36,7 +36,7 @@ public class RiskService extends EgovAbstractServiceImpl {
 	private final EmployeeRepository er;
 	private final NotificationRepository nr;
 	private final NotificationService ns;
-	private final String filePath = "/dangers/";
+	private final String filePath = "/home/ubuntu/DOSHA/dangers/";
 	
 	public String uploadFile(MultipartFile file) {
 		String originFileName = file.getOriginalFilename();
@@ -45,8 +45,6 @@ public class RiskService extends EgovAbstractServiceImpl {
 		File f = new File(filePath + newFileName);
 		try {
 			file.transferTo(f);
-			f.setWritable(true);
-			f.setReadable(true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

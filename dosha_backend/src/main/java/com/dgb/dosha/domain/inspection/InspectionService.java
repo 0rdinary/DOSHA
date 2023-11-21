@@ -37,7 +37,7 @@ public class InspectionService extends EgovAbstractServiceImpl {
 	private final NotificationRepository nr;
 	private final NotificationService ns;
 	private final int DURATION = 30;
-	private final String filePath = "/inspection/";
+	private final String filePath = "/home/ubuntu/DOSHA/inspection/";
 	
 	public InspectionDto getLastOne(Long employeeId) throws ParseException {
 		Employee employee = er.findById(employeeId).get();
@@ -51,24 +51,17 @@ public class InspectionService extends EgovAbstractServiceImpl {
 		return list.get(0).toDto();
 	}
 	
-	public String uploadFile(MultipartFile file) {
+	public String uploadFile(MultipartFile file) throws IllegalStateException, IOException {
 		String originFileName = file.getOriginalFilename();
 		String newFileName = System.currentTimeMillis() + originFileName;
 		
 		File f = new File(filePath + newFileName);
-		
-		try {
-			file.transferTo(f);
-			f.setWritable(true);
-			f.setReadable(true);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		file.transferTo(f);
 		
 		return newFileName;
 	}
 	
-	public void regist(MultipartFile file, Long id) {
+	public void regist(MultipartFile file, Long id) throws IllegalStateException, IOException {
 		String newFilePath = this.uploadFile(file);
 		Employee employee = er.findById(id).get();
 		
