@@ -18,20 +18,13 @@ import lombok.RequiredArgsConstructor;
 public class MeetingService extends EgovAbstractServiceImpl {
 
 	private final MeetingRepository mr;
-	String filePath = "./meeting/";
+	String filePath = "/meeting/";
 	
 	public void regist(String name, MultipartFile meeting) {
 		String originFileName = meeting.getOriginalFilename();
 		String fileName = System.currentTimeMillis() + originFileName;
 		
 		File f = new File(filePath + fileName);
-		if (!f.exists()) {
-			try {
-				f.mkdirs();
-			} catch (Exception e) {
-				
-			}
-		}
 		try {
 			meeting.transferTo(f);
 			f.setWritable(true);

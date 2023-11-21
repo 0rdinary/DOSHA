@@ -2,9 +2,6 @@ package com.dgb.dosha.domain.educations;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Optional;
 
 import org.egovframe.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -23,21 +20,14 @@ public class EducationsService extends EgovAbstractServiceImpl {
 	
 	private final EducationsRepository er;
 	private final EmployeeRepository employeeRepository;
-	Path filePath = Paths.get("/home", "ubuntu", "DOSHA", "educations");
+	String filePath = "/educations/";
 	
 	public void upload(Long id, MultipartFile educations) {
 		String originFileName = educations.getOriginalFilename();
 		String fileName = System.currentTimeMillis() + originFileName;
-		Path fullPath = filePath.resolve(fileName);
-		File f = fullPath.toFile();
 		
-		if (!f.getParentFile().exists()) {
-		    try {
-		        Files.createDirectories(f.getParentFile().toPath());
-		    } catch (IOException e) {
-		        e.printStackTrace();
-		    }
-		}
+		
+		File f = new File(filePath + fileName);
 		try {
 			educations.transferTo(f);
 		} catch (IOException e) {

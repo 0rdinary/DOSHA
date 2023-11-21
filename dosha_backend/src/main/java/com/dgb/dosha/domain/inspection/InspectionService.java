@@ -37,7 +37,7 @@ public class InspectionService extends EgovAbstractServiceImpl {
 	private final NotificationRepository nr;
 	private final NotificationService ns;
 	private final int DURATION = 30;
-	private final String filePath = "./inspection/";
+	private final String filePath = "/inspection/";
 	
 	public InspectionDto getLastOne(Long employeeId) throws ParseException {
 		Employee employee = er.findById(employeeId).get();
@@ -56,13 +56,6 @@ public class InspectionService extends EgovAbstractServiceImpl {
 		String newFileName = System.currentTimeMillis() + originFileName;
 		
 		File f = new File(filePath + newFileName);
-		if (!f.exists()) {
-			try {
-				f.mkdirs();
-			} catch (Exception e) {
-				
-			}
-		}
 		
 		try {
 			file.transferTo(f);
