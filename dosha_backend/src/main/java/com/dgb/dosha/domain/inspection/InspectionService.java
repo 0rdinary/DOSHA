@@ -37,7 +37,7 @@ public class InspectionService extends EgovAbstractServiceImpl {
 	private final NotificationRepository nr;
 	private final NotificationService ns;
 	private final int DURATION = 30;
-	private final String filePath = "/home/ubuntu/DOSHA/inspection/";
+	private final String filePath = "/home/ubuntu/DOSHA/inspection";
 	
 	public InspectionDto getLastOne(Long employeeId) throws ParseException {
 		Employee employee = er.findById(employeeId).get();

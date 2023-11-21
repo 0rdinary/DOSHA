@@ -25,24 +25,9 @@ public class EducationsService extends EgovAbstractServiceImpl {
 	public void upload(Long id, MultipartFile educations) throws IllegalStateException, IOException {
 		String originFileName = educations.getOriginalFilename();
 		String fileName = System.currentTimeMillis() + originFileName;
-		
-		
-//		Path filePath = Paths.get(filePath, fileName);
 
 		File f = new File(filePath + fileName);
 		educations.transferTo(f);
-//		if (!dir.exists()) {
-//			try {
-//				f.mkdirs();
-//			} catch (Exception e) {
-//				
-//			}
-//		}
-//		try {
-//			educations.transferTo(f);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
 		
 		final Educations file = Educations.builder()
 				.employee(employeeRepository.findById(id).get())
