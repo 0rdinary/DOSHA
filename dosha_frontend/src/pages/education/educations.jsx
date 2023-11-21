@@ -66,6 +66,7 @@ function Educations() {
         };
         reader.readAsDataURL(newFile);
         setImgSrc(response.data);
+        console.log(response);
       } catch (e) {
         setTourOpen(true);
       }
