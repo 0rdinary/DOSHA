@@ -9,6 +9,8 @@ function Home() {
     (state) => state.notificationReducer,
   );
 
+  console.log(notifications);
+
   const variants = {
     hidden: { opacity: 0 },
     visible: {
