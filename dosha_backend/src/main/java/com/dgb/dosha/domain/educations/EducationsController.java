@@ -39,7 +39,7 @@ public class EducationsController {
 
 	@GetMapping("/load")
 	public ResponseEntity<byte[]> loadEducations(@RequestParam Long id) throws IOException {
-		Resource resource = new ClassPathResource(es.load(id));
+		Resource resource = new ClassPathResource("./" + es.load(id));
 		byte[] bytes = StreamUtils.copyToByteArray(resource.getInputStream());
 		return ResponseEntity.ok(bytes);
 	}
