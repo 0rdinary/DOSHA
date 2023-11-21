@@ -23,29 +23,23 @@ public class EducationsService extends EgovAbstractServiceImpl {
 	
 	private final EducationsRepository er;
 	private final EmployeeRepository employeeRepository;
-	String filePath = "/educations";
+	Path filePath = Paths.get("/home", "ubuntu", "DOSHA", "educations");
 	
-	public void upload(Long id, MultipartFile educations) throws IOException {
+	public void upload(Long id, MultipartFile educations) {
 		String originFileName = educations.getOriginalFilename();
 		String fileName = System.currentTimeMillis() + originFileName;
-		Path path = Paths.get(filePath, fileName);
+		Path fullPath = filePath.resolve(fileName);
+		File f = fullPath.toFile();
 		
-		
-		File f = new File(path.toString());
-//		if (!f.exists()) {
-//			try {
-//				f.mkdirs();
-//			} catch (Exception e) {
-//				
-//			}
-//		}
-		if (!Files.exists(path)) {
-			Files.createDirectories(path.getParent());
+		if (!f.getParentFile().exists()) {
+		    try {
+		        Files.createDirectories(f.getParentFile().toPath());
+		    } catch (IOException e) {
+		        e.printStackTrace();
+		    }
 		}
 		try {
 			educations.transferTo(f);
-			f.setWritable(true);
-			f.setReadable(true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
