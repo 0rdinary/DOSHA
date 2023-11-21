@@ -90,7 +90,7 @@ const DangerItemView = ({ start, end, inputs }) => {
     setTimeout(() => {
       setLoading(false);
       imageModal();
-    }, 3000);
+    }, 10000);
   };
 
   for (let i = start; i <= end; i += 1) {
