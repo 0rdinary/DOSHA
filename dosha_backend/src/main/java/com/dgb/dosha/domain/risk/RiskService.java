@@ -36,7 +36,7 @@ public class RiskService extends EgovAbstractServiceImpl {
 	private final EmployeeRepository er;
 	private final NotificationRepository nr;
 	private final NotificationService ns;
-	private final String filePath = "/dangers/";
+	private final String filePath = "./dangers/";
 	
 	public String uploadFile(MultipartFile file) {
 		String originFileName = file.getOriginalFilename();
