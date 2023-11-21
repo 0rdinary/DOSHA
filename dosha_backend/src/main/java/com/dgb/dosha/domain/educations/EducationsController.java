@@ -34,7 +34,8 @@ public class EducationsController {
 	@GetMapping("/load")
 	public ResponseEntity<UrlResource> loadEducations(@RequestParam Long id) throws MalformedURLException {
 		
-		String contentDisposition = "attachment";
+		String fileName = es.load(id);
+		String contentDisposition = "attachment; filename=\"" + fileName + "\"";
 		
 		return ResponseEntity
 				.ok()
