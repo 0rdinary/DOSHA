@@ -46,7 +46,7 @@ function Danger({ step, stepHandler, info }) {
   const warnUpload = () => {
     notiApi.info({
       message: '조치 내용을 제출해야 합니다',
-      description: '테스트',
+      description: '이미지를 업로드 해주세요',
       placement: 'bottomRight',
     });
   };

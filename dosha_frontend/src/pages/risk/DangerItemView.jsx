@@ -70,12 +70,9 @@ const DangerItemView = ({ start, end, inputs }) => {
     // reader.readAsDataURL(newFile);
     const img = window.URL.createObjectURL(new Blob([response.data]));
     setImgSrc(img);
+    setModalOpen(true);
     setLoading(false);
   };
-
-  useEffect(() => {
-    setModalOpen(true);
-  }, [imgSrc]);
 
   for (let i = start; i <= end; i += 1) {
     component.push(
