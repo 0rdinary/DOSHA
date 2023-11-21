@@ -12,7 +12,7 @@ git pull
 echo "> Build server project"
 mvn package
 
-cd $REPOSITORY
+cd ../
 
 echo "> copy Server Project Build file"
 cp $REPOSITORY/$PROJECT_NAME/build/libs/*.jar $REPOSITORY/
