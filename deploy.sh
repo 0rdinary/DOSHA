@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY=/DOSHA
+REPOSITORY=./
 PROJECT_NAME=dosha_backend
 PROJECT_NAME2=dosha_frontend
 
