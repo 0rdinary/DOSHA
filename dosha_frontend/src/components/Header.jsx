@@ -88,7 +88,6 @@ function Header() {
           params: { id },
           headers,
         });
-        console.log(response);
         dispatch(notificationActions.setNotifications(response.data));
       };
       getNotification();
