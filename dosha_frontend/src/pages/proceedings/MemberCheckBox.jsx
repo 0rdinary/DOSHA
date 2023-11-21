@@ -85,7 +85,6 @@ function MemberCheckBox({ proceedingsId, member }) {
       {loading && <Loading />}
       {contextHolder}
       {member.name}
-      <Tour open={tourOpen} onClose={() => setTourOpen(false)} steps={steps} />
       <motion.div
         whileHover={member.employeeId === id && !checked ? { scale: 2 } : null}
       >
@@ -102,6 +101,7 @@ function MemberCheckBox({ proceedingsId, member }) {
           />
         )}
       </motion.div>
+      <Tour open={tourOpen} onClose={() => setTourOpen(false)} steps={steps} />
     </motion.div>
   );
 }
