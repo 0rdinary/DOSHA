@@ -46,7 +46,7 @@ function MemberCheckBox({ proceedingsId, member }) {
 
   useEffect(() => {
     if (member.employeeId === id && !member.checked) {
-      tourOpen(true);
+      setTourOpen(true);
     }
   }, [checked]);
 
