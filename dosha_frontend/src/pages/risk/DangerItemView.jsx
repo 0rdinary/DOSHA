@@ -49,23 +49,6 @@ const DangerItemView = ({ start, end, inputs }) => {
   const [loading, setLoading] = useState(false);
   const component = [];
 
-  const imageModal = () => {
-    Modal.info({
-      title: '조치내용',
-      width: '70vw',
-      height: '70vh',
-      style: { width: '70vw', height: '50vh' },
-      okText: '확인',
-      content: (
-        <img
-          style={{ width: '40vw', height: '70vh' }}
-          src={imgSrc}
-          alt="조치내용"
-        />
-      ),
-    });
-  };
-
   const loadImage = async (id) => {
     setLoading(true);
     const url = process.env.REACT_APP_DB_HOST + '/api/risk/image';
@@ -88,13 +71,31 @@ const DangerItemView = ({ start, end, inputs }) => {
     const img = window.URL.createObjectURL(new Blob([response.data]));
     setImgSrc(img);
     setLoading(false);
-    imageModal();
   };
+
+  useEffect(() => {
+    setModalOpen(true);
+  }, [imgSrc]);
 
   for (let i = start; i <= end; i += 1) {
     component.push(
       <div key={i} style={{ display: 'flex', marginLeft: '2vh' }}>
         {loading && <Loading />}
+        <Modal
+          title="조치내용"
+          width="70vw"
+          height="70vh"
+          style={{ width: '70vw', height: '50vh' }}
+          okText="확인"
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+        >
+          <img
+            style={{ width: '40vw', height: '70vh' }}
+            src={imgSrc}
+            alt="조치내용"
+          />
+        </Modal>
         <div style={{ width: '50%' }}>
           <h3>{dangerText[i]}</h3>
           <h3>{inputs[i].cur}</h3>
