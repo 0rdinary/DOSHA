@@ -20,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class EducationsController {
 	
 	private final EducationsService es;
+	private final EducationsRepository er;
 
 	@PostMapping("/upload")
 	public ResponseEntity<String> upload(
@@ -35,7 +36,7 @@ public class EducationsController {
 	public ResponseEntity<UrlResource> loadEducations(@RequestParam Long id) throws MalformedURLException {
 		
 		String fileName = es.load(id);
-		String contentDisposition = "attachment; filename=\"" + fileName + "\"";
+		String contentDisposition = "attachment; filename=\"" + er.findById(id).get().getFilename() + "\"";
 		
 		return ResponseEntity
 				.ok()
