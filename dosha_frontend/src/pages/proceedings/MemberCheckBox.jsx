@@ -77,7 +77,6 @@ function MemberCheckBox({ proceedingsId, member }) {
   return (
     <motion.div
       className="MemberCheckBox"
-      onClick={member.employeeId === id && !checked ? checkHandler : null}
       style={
         member.employeeId === id && !checked ? { cursor: 'pointer' } : null
       }
@@ -87,6 +86,7 @@ function MemberCheckBox({ proceedingsId, member }) {
       {member.name}
       <motion.div
         whileHover={member.employeeId === id && !checked ? { scale: 2 } : null}
+        onClick={member.employeeId === id && !checked ? checkHandler : null}
       >
         {checked ? (
           <CheckSquareOutlined
