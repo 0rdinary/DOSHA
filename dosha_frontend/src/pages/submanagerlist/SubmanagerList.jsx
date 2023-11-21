@@ -72,7 +72,8 @@ function SubmanagerList() {
         headers,
       });
 
-      const url2 = '/api/employee/submanager/get';
+      const url2 =
+        process.env.REACT_APP_DB_HOST + '/api/employee/submanager/get';
       const response = await axios.get(url2, {
         params: { id },
         headers,

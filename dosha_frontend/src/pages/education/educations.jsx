@@ -45,6 +45,7 @@ function Educations() {
 
   useEffect(() => {
     setLoading(true);
+    console.log('이미지 로드');
     const request = async () => {
       const url =
         process.env.REACT_APP_DB_HOST + '/api/manager/educations/load';
